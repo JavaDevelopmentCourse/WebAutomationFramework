@@ -20,7 +20,7 @@ public class StandaloneApplication extends BaseClass {
 
     String productName = "ZARA COAT 3";
 
-    //This is the test for Submitting order.
+
     @Test(dataProvider="getData",groups= {"Purchase"})
     public void testToSubmitOrder(HashMap<String,String> input) throws Exception {
 
@@ -30,7 +30,6 @@ public class StandaloneApplication extends BaseClass {
         Boolean match = cartPage.VerifyProductDisplay(input.get("product"));
         assertTrue(match);
         CheckoutPage checkoutPage = cartPage.goToCheckout();
-
         checkoutPage.selectCountry("india");
         ConfirmationPage confirmationPage = checkoutPage.submitOrder();
         String confirmMessage = confirmationPage.getConfirmationMessage();
