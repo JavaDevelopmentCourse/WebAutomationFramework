@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+
+
+
+
+        <groups>
+            <run>
+                <include name="ErrorHandlingTest"/>
+            </run>
+        </groups>
+    <listeners>
+        <listener class-name="org.amat.primevision.com.genericclass.Listeners"/>
+    </listeners>
+    <test  name="Error Validation test">
+        <classes>
+            <class name="org.amat.primevision.com.tests.ErrorValidationsTest"/>
+        </classes>
+    </test>
+</suite>
