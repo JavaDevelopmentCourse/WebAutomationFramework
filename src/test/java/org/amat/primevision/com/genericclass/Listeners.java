@@ -13,9 +13,9 @@ import java.io.IOException;
 
 public class Listeners extends BaseClass implements ITestListener{
 	ExtentTest test;
-	/*String value= convertCurrentDateIntoFolderName();*/
+
 	ExtentReports extent = ExtentReporterNG.getReportObject();
-	ThreadLocal<ExtentTest> extentTest = new ThreadLocal<ExtentTest>(); //Thread safe
+	ThreadLocal<ExtentTest> extentTest = new ThreadLocal<>(); //Thread safe
 
 
 	@Override

@@ -16,14 +16,15 @@ import java.util.Date;
 public class ExtentReporterNG  {
 
 static String htmlReportPath;
+	static String extentReport;
 
     public static ExtentReports getReportObject() {
 
 
-		convertDateToString();
+		//convertDateToString();  for dynamic reporting please enable this and comment the 25th line and pass "htmlReportPath" this value in the 26 line replace of "extentReport"
 		//System.out.println("path of the html report --> "+htmlReportPath);
-
-		ExtentSparkReporter reporter = new ExtentSparkReporter(htmlReportPath);
+		 extentReport = System.getProperty("user.dir") + "\\Reports\\DetailedReport\\FinalReport.html";
+		ExtentSparkReporter reporter = new ExtentSparkReporter(extentReport);
 		reporter.config().setReportName("Web Automation Results");
 		reporter.config().setDocumentTitle("Test Results");
 		
@@ -53,8 +54,8 @@ static String htmlReportPath;
 
 	public static String getScreenshot(String testCaseName, WebDriver driver) throws IOException
 	{
-		String ScreenShotPath = htmlReportPath.substring(0, htmlReportPath.indexOf("FinalReport"));
-		ScreenShotPath=ScreenShotPath+"FailedScenarioScreenShots\\" + testCaseName + ".png";
+		String ScreenShotPath = extentReport.substring(0, extentReport.indexOf("FinalReport"));
+		ScreenShotPath=ScreenShotPath+/*+"FailedScenarioScreenShots*/"\\" + testCaseName + ".png";
 		TakesScreenshot ts = (TakesScreenshot)driver;
 		File source = ts.getScreenshotAs(OutputType.FILE);
 		File file = new File(ScreenShotPath);

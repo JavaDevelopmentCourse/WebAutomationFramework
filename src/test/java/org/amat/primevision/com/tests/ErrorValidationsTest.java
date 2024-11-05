@@ -13,10 +13,10 @@ import static org.testng.Assert.assertEquals;
 public class ErrorValidationsTest extends BaseClass {
 
 	@Test(groups = {"ErrorHandlingTest"},retryAnalyzer= Retry.class)
-	public void LoginErrorValidation() throws InterruptedException {
+	public void LoginErrorValidation() {
 
 	
-		landingPage.loginApplications("szzagar.nitin08@gmail.com", "Nitin*88");
+		landingPage.loginApplications("sagar.nitin08@gmail.com", "Nitin*88");
 		assertEquals("Incorrect email or password.", landingPage.getErrorMessage());
 
 	}
